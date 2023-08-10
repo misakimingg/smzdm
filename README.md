@@ -30,6 +30,10 @@ ql repo https://github.com/misakimingg/smzdm.git "" "env.js|bot.js|sendNotify.js
 
 建议自行更改青龙面板的脚本执行时间
 
+### NodeJS 依赖
+
+* crypto-js
+
 ### 抓包
 
 建议使用 Android 手机抓包（iOS 也可以）域名为 `user-api.smzdm.com` 的任意链接，把**所有** Cookie 取出来放到青龙面板的 `SMZDM_COOKIE` 环境变量中，多用户请添加多个同名环境变量或者用 `&` 符号分隔。
@@ -51,7 +55,7 @@ ql repo https://github.com/misakimingg/smzdm.git "" "env.js|bot.js|sendNotify.js
 环境变量请使用环境变量列表直接添加，不要使用 `export xxx=""` 这种方式添加环境变量。
 
 * `SMZDM_COOKIE`: 抓包抓到的 Cookie 内容，需要所有 Cookie 内容，多用户可以用 `&` 分隔，或者使用多个同名环境变量。
-* `SMZDM_SK`: 这个值是可选值，是从安卓 App 的 `https://user-api.smzdm.com/checkin` 请求参数中抓包抓到的，如果抓到这个值可以填写（强烈建议填写），如果没抓到可以忽略，多用户可以用 `&` 分隔，或者使用多个同名环境变量，顺序要保持与 `SMZDM_COOKIE` 多用户顺序一致。
+* `SMZDM_SK`: 这个值是可选值，会自动计算，如果你一定想用自己的，可以抓取，是从安卓 App 的 `https://user-api.smzdm.com/checkin` 请求参数中抓包抓到的，多用户可以用 `&` 分隔，或者使用多个同名环境变量，顺序要保持与 `SMZDM_COOKIE` 多用户顺序一致。
 * `SMZDM_USER_AGENT_APP`: 这个值是可选值，是指 APP 的 User-Agent，从 APP 的 API 请求头中抓包得到，建议抓取 Android 的 User-Agent，不填使用脚本默认值。
 * `SMZDM_USER_AGENT_WEB`: 这个值是可选值，是指 APP 中访问网页的 User-Agent，一般在 APP 内的转盘网页中抓包得到，建议抓取 Android 的 User-Agent，不填使用脚本默认值。
 * `SMZDM_COMMENT`: 如果要完成评论文章的任务请设置这个环境变量，环境变量的内容是评论的文案，文案要大于 10 个汉字，建议用比较个性化的文案，脚本发布评论后会删除这条评论，但是为防止删除失败的情况，请尽量用好一点的文案，防止被判定为恶意灌水。
